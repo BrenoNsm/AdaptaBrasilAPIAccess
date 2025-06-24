@@ -35,7 +35,7 @@ def cleanhtml(raw_html):
 
 if __name__ == '__main__':
     args = get_command_line_arguments()
-        url_hierarchy = f"{args.base_url}{'' if args.base_url[-1] == '/' else '/'}api/hierarquia/{args.schema}"
+    url_hierarchy = f"{args.base_url}{'' if args.base_url[-1] == '/' else '/'}api/hierarquia/{args.schema}"
     with urllib.request.urlopen(url_hierarchy) as url, open(args.arquivo_saida,mode='w', encoding='utf-8') as csv_file:
         indicators = json.load(url)
         s = '\ufeff' # BOM code to preserve diacritics em Excel
